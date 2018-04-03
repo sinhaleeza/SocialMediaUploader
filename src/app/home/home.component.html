@@ -1,0 +1,23 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Choose a website to upload the post to</p>
+  </div>
+  <div class="col">
+      <p>Post ({{itemCount}})</p>
+    </div>
+</div>
+<div class="container color-light" [@posts]="posts.length">
+    <div class="col">
+      <p class="sm">Create a post to upload to a social media website.</p>
+
+      <form>
+        <input type="text" class="txt" name="post" placeholder="Social media post .." [(ngModel)]="postTxt">
+        <input type="submit" class="btn" value="{{btnTxt}}" (click)="addItem()">
+      </form>
+    </div>
+    <div class="col">
+        <p class="life-container" *ngFor="let post of posts; let i = index" (click)="removeItem(i)">
+          {{ post }}
+        </p>
+      </div>
+  </div>
